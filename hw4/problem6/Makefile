@@ -2,7 +2,7 @@ exe=problem6
 .PHONY: clean
 
 exc: $(exe)
-	./$<
+	./$< ps -l
 
 test: exc clean
 

@@ -6,12 +6,14 @@
 
 int main() {
    pid_t pid;
+   int status;
    if ((pid=fork()) == 0) {
+      sleep(1);
       printf("child\n");
    }
    else if (pid>0) {
       printf("parent\n");
-      wait(NULL);
+      wait(&status);
    }
    exit(EXIT_SUCCESS);
 }

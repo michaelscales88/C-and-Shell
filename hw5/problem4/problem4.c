@@ -28,9 +28,10 @@ int main(int argc, char* argv[]) {
 }
 
 bool eof(int fd) {
-   off_t cur_position = lseek(fd, 0, SEEK_CUR);
-   off_t end_position = lseek(fd, 0, SEEK_END);
-   // Set position back to beginning
-   lseek(fd, cur_position, SEEK_SET);
-   return (cur_position >= end_position) ? true: false;
+   char c;
+   bool atEof = false;
+   int bRead = read(fd, &c, 1);
+   if (bRead < 1) atEof = true;
+   else lseek(fd, -1, SEEK_CUR);
+   return atEof;
 }

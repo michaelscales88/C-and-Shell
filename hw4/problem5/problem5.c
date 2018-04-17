@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 
    pid_t child_pid = fork();
 
-   if (child_pid > 0) sleep(10);
+   if (child_pid > 0) sleep(2);
 
    /* Open the command for reading. */
    fp = popen("ps", "r");

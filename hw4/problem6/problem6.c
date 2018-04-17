@@ -33,12 +33,10 @@ int main(int argc, char* argv[]) {
       _exit(EXIT_FAILURE);
    }
    // Exit from the parent process
-   printf("Exiting\n");
    exit(EXIT_SUCCESS);
 }
 
 int foo_system(const char *command) {
-   printf("Executing command.\n");
    execl( "/bin/sh", "sh", "-c", command, (char *) 0);
    fprintf(stderr, "Return not expected. Must be an execl() error.\n");
    return 1;

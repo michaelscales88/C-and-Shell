@@ -6,7 +6,16 @@ cc=gcc
 exec: $(project)
 	./$< $<.c
 
-test: exec clean
+test: file link dir
+
+file: $(project)
+	./$< afile.txt
+
+link: $(project)
+	./$< afilelink.link
+
+dir: $(project)
+	./$< adir
 
 all: $(objects)
 

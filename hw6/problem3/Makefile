@@ -1,10 +1,16 @@
 project=problem3
 objects=$(project).o
 cc=gcc
-.PHONY: clean test
+.PHONY: clean test normal ascending
 
 exec: $(project)
-	./$< . -a
+	./$< .
+
+normal: $(project)
+	./$< test/
+
+ascending: $(project)
+	./$< test/ -a
 
 test: exec clean
 
